@@ -62,3 +62,16 @@ d3.json("https://d3js.org/us-10m.v1.json", function (error, us) {
     if (error) throw error;
     window.us = us;
 });
+module.exports = function () {
+    return {
+        us: us,
+        chroma: chroma,
+        numeral: numeral,
+        topojson: topojson,
+        math: math,
+        $: $,
+        ko: ko,
+        _: _,
+        d3: d3
+    };
+};
