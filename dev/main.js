@@ -1,17 +1,26 @@
 /*jshint esversion: 6 */
-var d3 = require('d3'),
-    _ = require('lodash'),
-    ko = require('knockout'),
-    $ = require('jquery'),
-    math = require('mathjs'),
-    topojson = require('topojson-client'),
-    numeral = require('numeral'),
-    chroma = require('chroma-js'),
-    moment = require('moment'),
-    us = window.us || {};
+var d3 = window.d3 || {},
+    _ = window._ || {},
+    ko = window.ko || {},
+    $ = window.$ || {},
+    math = window.math || {},
+    topojson = window.topojson || {},
+    numeral = window.numeral || {},
+    chroma = window.chroma || {},
+    moment = window.moment || {};
+d3 = require('d3');
+_ = require('lodash');
+ko = require('knockout');
+$ = require('jquery');
+math = require('mathjs');
+topojson = require('topojson-client');
+numeral = require('numeral');
+chroma = require('chroma-js');
+moment = require('moment');
+us = window.us || {};
 require('supergroup');
 require('knockout-punches');
-require('d3-textwrap')('d3');
+require('d3-textwrap');
 require('jquery-awesome-cursor');
 Array.prototype.move = function (old_index, new_index) {
     if (new_index >= this.length) {
@@ -63,15 +72,12 @@ d3.json("https://d3js.org/us-10m.v1.json", function (error, us) {
     if (error) throw error;
     window.us = us;
 });
-module.exports = function () {
-    window.us = us;
-    window.chroma = chroma;
-    window.numeral = numeral;
-    window.topojson = topojson;
-    window.math = math;
-    window.$ = $;
-    window.ko = ko;
-    window._ = _;
-    window.d3 = d3;
-    window.moment = moment;
-};
+window.chroma = chroma;
+window.numeral = numeral;
+window.topojson = topojson;
+window.math = math;
+window.$ = $;
+window.ko = ko;
+window._ = _;
+window.d3 = d3;
+window.moment = moment;
