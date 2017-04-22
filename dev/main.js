@@ -7,10 +7,11 @@ var d3 = require('d3'),
     topojson = require('topojson-client'),
     numeral = require('numeral'),
     chroma = require('chroma-js'),
+    moment = require('moment'),
     us = window.us || {};
 require('supergroup');
 require('knockout-punches');
-require('d3-textwrap');
+require('d3-textwrap')('d3');
 require('jquery-awesome-cursor');
 Array.prototype.move = function (old_index, new_index) {
     if (new_index >= this.length) {
@@ -63,15 +64,14 @@ d3.json("https://d3js.org/us-10m.v1.json", function (error, us) {
     window.us = us;
 });
 module.exports = function () {
-    return {
-        us: us,
-        chroma: chroma,
-        numeral: numeral,
-        topojson: topojson,
-        math: math,
-        $: $,
-        ko: ko,
-        _: _,
-        d3: d3
-    };
+    window.us = us;
+    window.chroma = chroma;
+    window.numeral = numeral;
+    window.topojson = topojson;
+    window.math = math;
+    window.$ = $;
+    window.ko = ko;
+    window._ = _;
+    window.d3 = d3;
+    window.moment = moment;
 };
